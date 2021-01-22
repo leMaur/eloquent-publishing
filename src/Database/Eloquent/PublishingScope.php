@@ -16,7 +16,16 @@ class PublishingScope implements Scope
      *
      * @var string[]
      */
-    protected $extensions = ['OnlyPublished', 'OnlyPlanned', 'OnlyPlannedAndPublished', 'WithoutPlannedAndPublished'];
+    protected $extensions = [
+        'OnlyPlannedAndPublished',
+        'WithoutPlannedAndPublished',
+        'OnlyPlanned',
+        'OnlyPublished',
+        'LatestPublished',
+        'OldestPublished',
+        'LatestPlanned',
+        'OldestPlanned'
+    ];
 
     /**
      * Apply the scope to a given Eloquent query builder.
@@ -69,15 +78,13 @@ class PublishingScope implements Scope
         $builder->macro('onlyPublished', function (Builder $builder): Builder {
             $model = $builder->getModel();
 
-            $builder
-                ->withoutGlobalScope($this)
-                ->whereNotNull(
-                    $model->getQualifiedPublishedAtColumn()
-                )->where(
-                    $model->getQualifiedPublishedAtColumn(),
-                    '<=',
-                    Date::now()
-                );
+            $builder->whereNotNull(
+                $model->getQualifiedPublishedAtColumn()
+            )->where(
+                $model->getQualifiedPublishedAtColumn(),
+                '<=',
+                Date::now()
+            );
 
             return $builder;
         });
@@ -94,14 +101,13 @@ class PublishingScope implements Scope
         $builder->macro('onlyPlanned', function (Builder $builder): Builder {
             $model = $builder->getModel();
 
-            $builder->withoutGlobalScope($this)
-                ->whereNotNull(
-                    $model->getQualifiedPublishedAtColumn()
-                )->where(
-                    $model->getQualifiedPublishedAtColumn(),
-                    '>',
-                    Date::now()
-                );
+            $builder->whereNotNull(
+                $model->getQualifiedPublishedAtColumn()
+            )->where(
+                $model->getQualifiedPublishedAtColumn(),
+                '>',
+                Date::now()
+            );
 
             return $builder;
         });
@@ -118,9 +124,7 @@ class PublishingScope implements Scope
         $builder->macro('onlyPlannedAndPublished', function (Builder $builder): Builder {
             $model = $builder->getModel();
 
-            $builder->withoutGlobalScope($this)->whereNotNull(
-                $model->getQualifiedPublishedAtColumn()
-            );
+            $builder->whereNotNull($model->getQualifiedPublishedAtColumn());
 
             return $builder;
         });
@@ -137,9 +141,75 @@ class PublishingScope implements Scope
         $builder->macro('withoutPlannedAndPublished', function (Builder $builder): Builder {
             $model = $builder->getModel();
 
-            $builder->withoutGlobalScope($this)->whereNull(
-                $model->getQualifiedPublishedAtColumn()
-            );
+            $builder->whereNull($model->getQualifiedPublishedAtColumn());
+
+            return $builder;
+        });
+    }
+
+    /**
+     * Add the latest published extension to the builder.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $builder
+     * @return void
+     */
+    protected function addLatestPublished(Builder $builder): void
+    {
+        $builder->macro('latestPublished', function (Builder $builder): Builder {
+            $model = $builder->getModel();
+
+            $builder->orderBy($model->getQualifiedPublishedAtColumn(), 'desc');
+
+            return $builder;
+        });
+    }
+
+    /**
+     * Add the oldest published extension to the builder.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $builder
+     * @return void
+     */
+    protected function addOldestPublished(Builder $builder): void
+    {
+        $builder->macro('oldestPublished', function (Builder $builder): Builder {
+            $model = $builder->getModel();
+
+            $builder->orderBy($model->getQualifiedPublishedAtColumn(), 'asc');
+
+            return $builder;
+        });
+    }
+
+    /**
+     * Add the latest planned extension to the builder.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $builder
+     * @return void
+     */
+    protected function addLatestPlanned(Builder $builder): void
+    {
+        $builder->macro('latestPlanned', function (Builder $builder): Builder {
+            $model = $builder->getModel();
+
+            $builder->latestPublished();
+
+            return $builder;
+        });
+    }
+
+    /**
+     * Add the oldest planned extension to the builder.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $builder
+     * @return void
+     */
+    protected function addOldestPlanned(Builder $builder): void
+    {
+        $builder->macro('oldestPlanned', function (Builder $builder): Builder {
+            $model = $builder->getModel();
+
+            $builder->oldestPublished();
 
             return $builder;
         });
