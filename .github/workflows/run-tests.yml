@@ -37,10 +37,10 @@ jobs:
         run: vendor/bin/phpunit --coverage --min=100 --coverage-html=.coverage --coverage-clover=coverage.xml
 
       - name: Upload coverage report
-          uses: actions/upload-artifact@v2
-          if: failure()
-          with:
-            name: coverage-report
-            path: |
-              coverage.xml
-              .coverage/
+        uses: actions/upload-artifact@v2
+        if: failure()
+        with:
+          name: coverage-report
+          path: |
+            coverage.xml
+            .coverage/
