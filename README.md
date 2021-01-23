@@ -1,8 +1,8 @@
 # Easily make your eloquent model publishable
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/leMaur/eloquent-publishing.svg?style=flat-square)](https://packagist.org/packages/leMaur/eloquent-publishing)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/lemaur/eloquent-publishing.svg?style=flat-square)](https://packagist.org/packages/lemaur/eloquent-publishing)
 ![Tests](https://github.com/leMaur/eloquent-publishing/workflows/Tests/badge.svg)
-[![Total Downloads](https://img.shields.io/packagist/dt/leMaur/eloquent-publishing.svg?style=flat-square)](https://packagist.org/packages/leMaur/eloquent-publishing)
+[![Total Downloads](https://img.shields.io/packagist/dt/lemaur/eloquent-publishing.svg?style=flat-square)](https://packagist.org/packages/lemaur/eloquent-publishing)
 
 This package provides a trait that will help you publishing, filtering and ordering your eloquent model.
 ```php
