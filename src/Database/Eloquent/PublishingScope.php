@@ -24,7 +24,7 @@ class PublishingScope implements Scope
         'LatestPublished',
         'OldestPublished',
         'LatestPlanned',
-        'OldestPlanned'
+        'OldestPlanned',
     ];
 
     /**
@@ -190,8 +190,6 @@ class PublishingScope implements Scope
     protected function addLatestPlanned(Builder $builder): void
     {
         $builder->macro('latestPlanned', function (Builder $builder): Builder {
-            $model = $builder->getModel();
-
             $builder->latestPublished();
 
             return $builder;
@@ -207,8 +205,6 @@ class PublishingScope implements Scope
     protected function addOldestPlanned(Builder $builder): void
     {
         $builder->macro('oldestPlanned', function (Builder $builder): Builder {
-            $model = $builder->getModel();
-
             $builder->oldestPublished();
 
             return $builder;

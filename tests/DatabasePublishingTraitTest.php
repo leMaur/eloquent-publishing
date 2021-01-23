@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Tests;
 
 use Illuminate\Support\Carbon;
-use Mockery as m;
 use Lemaur\Publishing\Database\Eloquent\Publishes;
+use Mockery as m;
 
 class DatabasePublishingTraitTest extends TestCase
 {

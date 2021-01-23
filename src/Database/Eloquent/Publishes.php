@@ -153,6 +153,28 @@ trait Publishes
     }
 
     /**
+     * Register an unpublishing model event with the dispatcher.
+     *
+     * @param  \Closure|string  $callback
+     * @return void
+     */
+    public static function unpublishing($callback): void
+    {
+        static::registerModelEvent('unpublishing', $callback);
+    }
+
+    /**
+     * Register an unpublished model event with the dispatcher.
+     *
+     * @param  \Closure|string  $callback
+     * @return void
+     */
+    public static function unpublished($callback): void
+    {
+        static::registerModelEvent('unpublished', $callback);
+    }
+
+    /**
      * Get the name of the "published at" column.
      *
      * @return string

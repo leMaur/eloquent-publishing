@@ -10,8 +10,8 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Query\Builder as BaseBuilder;
 use Illuminate\Database\Query\Grammars\Grammar;
 use Illuminate\Database\Query\Processors\Processor;
-use Mockery as m;
 use Lemaur\Publishing\Database\Eloquent\PublishingScope;
+use Mockery as m;
 
 class DatabasePublishingScopeTest extends TestCase
 {
