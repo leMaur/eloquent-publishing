@@ -26,7 +26,7 @@ trait Publishes
      */
     public function initializePublishes(): void
     {
-        if (!isset($this->casts[$this->getPublishedAtColumn()])) {
+        if (! isset($this->casts[$this->getPublishedAtColumn()])) {
             $this->casts[$this->getPublishedAtColumn()] = 'datetime';
         }
     }
@@ -105,7 +105,7 @@ trait Publishes
      */
     public function isNotPublished(): bool
     {
-        return !$this->isPublished();
+        return ! $this->isPublished();
     }
 
     /**
