@@ -1,7 +1,7 @@
 # Easily make your eloquent model publishable
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/leMaur/eloquent-publishing.svg?style=flat-square)](https://packagist.org/packages/leMaur/eloquent-publishing)
-[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/leMaur/eloquent-publishing/Tests?label=tests)](https://github.com/leMaur/eloquent-publishing/actions?query=workflow%3ATests+branch%3Amain)
+![Tests](https://github.com/leMaur/eloquent-publishing/workflows/Tests/badge.svg)
 [![Total Downloads](https://img.shields.io/packagist/dt/leMaur/eloquent-publishing.svg?style=flat-square)](https://packagist.org/packages/leMaur/eloquent-publishing)
 
 This package provides a trait that will help you publishing, filtering and ordering your eloquent model.
@@ -200,7 +200,7 @@ class CreatePostsTable extends Migration
 
 When you publish or unpublish a model, the package dispatches several events: `publishing`, `published`, `unpublishing`, `unpublished`.
 
-The `publishing` / `published` events will dispatch when a model is published.  
+The `publishing` / `published` events will dispatch when a model is published.
 The `unpublishing` / `unpublished` events will dispatch when a model is unpublished.
 
 > For more information about the events, refer to the [Laravel Documentation](https://laravel.com/docs/8.x/eloquent#events)
