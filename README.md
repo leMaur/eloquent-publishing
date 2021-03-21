@@ -1,10 +1,12 @@
 # Easily make your eloquent model publishable
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/lemaur/eloquent-publishing.svg?style=flat-square)](https://packagist.org/packages/lemaur/eloquent-publishing)
+[![Latest Stable Version](https://poser.pugx.org/lemaur/eloquent-publishing/v)](//packagist.org/packages/lemaur/eloquent-publishing)
+[![Total Downloads](https://poser.pugx.org/lemaur/eloquent-publishing/downloads)](//packagist.org/packages/lemaur/eloquent-publishing)
+[![License](https://poser.pugx.org/lemaur/eloquent-publishing/license)](//packagist.org/packages/lemaur/eloquent-publishing)
 ![Tests](https://github.com/leMaur/eloquent-publishing/workflows/Tests/badge.svg)
-[![Total Downloads](https://img.shields.io/packagist/dt/lemaur/eloquent-publishing.svg?style=flat-square)](https://packagist.org/packages/lemaur/eloquent-publishing)
+[![Treeware](https://img.shields.io/badge/dynamic/json?color=brightgreen&label=Treeware&query=%24.total&url=https%3A%2F%2Fpublic.offset.earth%2Fusers%2Ftreeware%2Ftrees)](https://treeware.earth)
 
-This package provides a trait that will help you publishing, filtering and ordering your eloquent model.
+This package provides a trait that will help you publishing eloquent models.
 ```php
 use Lemaur\Publishing\Database\Eloquent\Publishes;
 
@@ -231,3 +233,9 @@ Please review [our security policy](../../security/policy) on how to report secu
 ## License
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
+
+## Treeware
+
+If you use it in production, then I ask that you [**buy the world a tree**](https://plant.treeware.earth/leMaur/eloquent-publishing) to thank me for my work. By contributing to the Treeware forest you’ll be creating employment for local families and restoring wildlife habitats.
+
+Read more about [Treeware](https://treeware.earth).
