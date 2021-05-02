@@ -1,10 +1,10 @@
 # Easily make your eloquent model publishable
 
-[![Latest Stable Version](https://poser.pugx.org/lemaur/eloquent-publishing/v)](//packagist.org/packages/lemaur/eloquent-publishing)
-[![Total Downloads](https://poser.pugx.org/lemaur/eloquent-publishing/downloads)](//packagist.org/packages/lemaur/eloquent-publishing)
-[![License](https://poser.pugx.org/lemaur/eloquent-publishing/license)](//packagist.org/packages/lemaur/eloquent-publishing)
-![Tests](https://github.com/leMaur/eloquent-publishing/workflows/Tests/badge.svg)
-[![Treeware](https://img.shields.io/badge/dynamic/json?color=brightgreen&label=Treeware&query=%24.total&url=https%3A%2F%2Fpublic.offset.earth%2Fusers%2Ftreeware%2Ftrees)](https://treeware.earth)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/lemaur/eloquent-publishing.svg?style=flat-square)](https://packagist.org/packages/lemaur/eloquent-publishing)
+[![Total Downloads](https://img.shields.io/packagist/dt/lemaur/eloquent-publishing.svg?style=flat-square)](https://packagist.org/packages/lemaur/eloquent-publishing)
+[![License](https://img.shields.io/packagist/l/lemaur/eloquent-publishing.svg?style=flat-square)](//packagist.org/packages/lemaur/eloquent-publishing)
+[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/lemaur/eloquent-publishing/run-tests?label=tests)](https://github.com/lemaur/eloquent-publishing/actions?query=workflow%3Arun-tests+branch%3Amaster)
+[![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/lemaur/eloquent-publishing/Check%20&%20fix%20styling?label=code%20style)](https://github.com/lemaur/eloquent-publishing/actions?query=workflow%3A"Check+%26+fix+styling"+branch%3Amaster)
 
 This package provides a trait that will help you publishing eloquent models.
 ```php
@@ -16,6 +16,20 @@ class Post extends Model
 }
 ```
 It also includes custom schema builder blueprint methods to help you setting up your migrations with ease.
+
+## Support Me
+
+Hey folks,
+
+Do you like this package? Do you find it useful and it fits well in your project?
+
+I am glad to help you, and I would be so grateful if you considered supporting my work.
+
+You can even choose 😃:
+* You can [sponsor me 😎](https://github.com/sponsors/leMaur) with a monthly subscription.
+* You can [buy me a coffee ☕ or a pizza 🍕](https://github.com/sponsors/leMaur?frequency=one-time&sponsor=leMaur) just for this package.
+* You can [plant trees 🌴](https://ecologi.com/lemaur?r=6012e849de97da001ddfd6c9). By using this link we will both receive 30 trees for free and the planet (and me) will thank you. 
+* You can "Star ⭐" this repository (it's free 😉).
 
 ## Installation
 
@@ -233,9 +247,3 @@ Please review [our security policy](../../security/policy) on how to report secu
 ## License
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
-
-## Treeware
-
-If you use it in production, then I ask that you [**buy the world a tree**](https://plant.treeware.earth/leMaur/eloquent-publishing) to thank me for my work. By contributing to the Treeware forest you’ll be creating employment for local families and restoring wildlife habitats.
-
-Read more about [Treeware](https://treeware.earth).
