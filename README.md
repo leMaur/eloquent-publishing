@@ -2,10 +2,11 @@
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/lemaur/eloquent-publishing.svg?style=flat-square)](https://packagist.org/packages/lemaur/eloquent-publishing)
 [![Total Downloads](https://img.shields.io/packagist/dt/lemaur/eloquent-publishing.svg?style=flat-square)](https://packagist.org/packages/lemaur/eloquent-publishing)
-[![License](https://img.shields.io/packagist/l/lemaur/eloquent-publishing.svg?style=flat-square&color=yellow)](//packagist.org/packages/lemaur/eloquent-publishing)
+[![License](https://img.shields.io/packagist/l/lemaur/eloquent-publishing.svg?style=flat-square&color=yellow)](https://github.com/leMaur/eloquent-publishing/blob/main/LICENSE.md)
 [![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/lemaur/eloquent-publishing/Tests?label=tests&style=flat-square)](https://github.com/lemaur/eloquent-publishing/actions?query=workflow%3Atests+branch%3Amain)
-[![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/lemaur/eloquent-publishing/Check%20&%20fix%20styling?label=code%20style&style=flat-square)](https://github.com/lemaur/eloquent-publishing/actions?query=workflow%3A"Check+%26+fix+styling"+branch%3Amaster)
-[![Trees](https://img.shields.io/badge/dynamic/json?color=yellowgreen&style=flat-square&label=Trees&query=%24.total&url=https%3A%2F%2Fpublic.offset.earth%2Fusers%2Flemaur%2Ftrees)]()
+[![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/lemaur/eloquent-publishing/Check%20&%20fix%20styling?label=code%20style&style=flat-square)](https://github.com/lemaur/eloquent-publishing/actions?query=workflow%3A"Check+%26+fix+styling"+branch%3Amain)
+[![GitHub Sponsors](https://img.shields.io/github/sponsors/lemaur?style=flat-square&color=ea4aaa)](https://github.com/sponsors/leMaur)
+[![Trees](https://img.shields.io/badge/dynamic/json?color=yellowgreen&style=flat-square&label=Trees&query=%24.total&url=https%3A%2F%2Fpublic.offset.earth%2Fusers%2Flemaur%2Ftrees)](https://ecologi.com/lemaur?r=6012e849de97da001ddfd6c9)
 
 This package provides a trait that will help you publishing eloquent models.
 ```php
