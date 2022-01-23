@@ -16,7 +16,7 @@ trait Publishes
      */
     public static function bootPublishes(): void
     {
-        static::addGlobalScope(new PublishingScope);
+        static::addGlobalScope(new PublishingScope());
     }
 
     /**
