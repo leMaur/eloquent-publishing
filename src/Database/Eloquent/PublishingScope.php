@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Date;
 class PublishingScope implements Scope
 {
     /**
-     * All of the extensions to be added the the builder.
+     * All of the extensions to be added to the builder.
      *
      * @var string[]
      */
