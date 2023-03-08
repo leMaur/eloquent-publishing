@@ -72,8 +72,11 @@ class DatabasePublishingTraitStub
     use Publishes;
 
     public $published_at;
+
     public $updated_at;
+
     public $timestamps = true;
+
     public $exists = false;
 
     public function newQuery()

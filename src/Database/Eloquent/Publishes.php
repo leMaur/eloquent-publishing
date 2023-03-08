@@ -21,8 +21,6 @@ trait Publishes
 {
     /**
      * Boot the publishing trait for a model.
-     *
-     * @return void
      */
     public static function bootPublishes(): void
     {
@@ -31,8 +29,6 @@ trait Publishes
 
     /**
      * Initialize the publishes trait for an instance.
-     *
-     * @return void
      */
     public function initializePublishes(): void
     {
@@ -43,8 +39,6 @@ trait Publishes
 
     /**
      * Publish the model instance.
-     *
-     * @return bool|null
      */
     public function publish(?DateTimeInterface $datetime = null): ?bool
     {
@@ -71,8 +65,6 @@ trait Publishes
 
     /**
      * Unpublish the model instance.
-     *
-     * @return bool|null
      */
     public function unpublish(): ?bool
     {
@@ -99,8 +91,6 @@ trait Publishes
 
     /**
      * Determine if the model instance is published.
-     *
-     * @return bool
      */
     public function isPublished(): bool
     {
@@ -110,8 +100,6 @@ trait Publishes
 
     /**
      * Determine if the model instance is not published.
-     *
-     * @return bool
      */
     public function isNotPublished(): bool
     {
@@ -120,8 +108,6 @@ trait Publishes
 
     /**
      * Determine if the model instance is planned.
-     *
-     * @return bool
      */
     public function isPlanned(): bool
     {
@@ -131,8 +117,6 @@ trait Publishes
 
     /**
      * Determine if the model instance is not planned.
-     *
-     * @return bool
      */
     public function isNotPlanned(): bool
     {
@@ -144,7 +128,6 @@ trait Publishes
      * Register a publishing model event with the dispatcher.
      *
      * @param  \Closure|string  $callback
-     * @return void
      */
     public static function publishing($callback): void
     {
@@ -155,7 +138,6 @@ trait Publishes
      * Register a published model event with the dispatcher.
      *
      * @param  \Closure|string  $callback
-     * @return void
      */
     public static function published($callback): void
     {
@@ -166,7 +148,6 @@ trait Publishes
      * Register an unpublishing model event with the dispatcher.
      *
      * @param  \Closure|string  $callback
-     * @return void
      */
     public static function unpublishing($callback): void
     {
@@ -177,7 +158,6 @@ trait Publishes
      * Register an unpublished model event with the dispatcher.
      *
      * @param  \Closure|string  $callback
-     * @return void
      */
     public static function unpublished($callback): void
     {
@@ -186,8 +166,6 @@ trait Publishes
 
     /**
      * Get the name of the "published at" column.
-     *
-     * @return string
      */
     public function getPublishedAtColumn(): string
     {
@@ -196,8 +174,6 @@ trait Publishes
 
     /**
      * Get the fully qualified "published at" column.
-     *
-     * @return string
      */
     public function getQualifiedPublishedAtColumn(): string
     {
