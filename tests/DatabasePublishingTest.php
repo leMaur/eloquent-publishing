@@ -30,7 +30,8 @@ class DatabasePublishingTest extends TestCase
 
     public function testExistingCastOverridesAddedDateCast()
     {
-        $model = new class (['published_at' => '2021-01-01 12:59:39']) extends PublishingModel {
+        $model = new class(['published_at' => '2021-01-01 12:59:39']) extends PublishingModel
+        {
             protected $casts = ['published_at' => 'bool'];
         };
 
@@ -39,7 +40,8 @@ class DatabasePublishingTest extends TestCase
 
     public function testExistingMutatorOverridesAddedDateCast()
     {
-        $model = new class (['published_at' => '2021-01-01 12:59:39']) extends PublishingModel {
+        $model = new class(['published_at' => '2021-01-01 12:59:39']) extends PublishingModel
+        {
             protected function getPublishedAtAttribute()
             {
                 return 'expected';
@@ -51,7 +53,8 @@ class DatabasePublishingTest extends TestCase
 
     public function testCastingToStringOverridesAutomaticDateCastingToRetainPreviousBehaviour()
     {
-        $model = new class (['published_at' => '2021-01-01 12:59:39']) extends PublishingModel {
+        $model = new class(['published_at' => '2021-01-01 12:59:39']) extends PublishingModel
+        {
             protected $casts = ['published_at' => 'string'];
         };
 

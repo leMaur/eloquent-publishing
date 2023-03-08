@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Date;
 class PublishingScope implements Scope
 {
     /**
-     * All of the extensions to be added the the builder.
+     * All of the extensions to be added to the builder.
      *
      * @var string[]
      */
@@ -29,10 +29,6 @@ class PublishingScope implements Scope
 
     /**
      * Apply the scope to a given Eloquent query builder.
-     *
-     * @param  \Illuminate\Database\Eloquent\Builder  $builder
-     * @param  \Illuminate\Database\Eloquent\Model  $model
-     * @return void
      */
     public function apply(Builder $builder, Model $model): void
     {
@@ -41,9 +37,6 @@ class PublishingScope implements Scope
 
     /**
      * Extend the query builder with the needed functions.
-     *
-     * @param \Illuminate\Database\Eloquent\Builder $builder
-     * @return void
      */
     public function extend(Builder $builder): void
     {
@@ -54,9 +47,6 @@ class PublishingScope implements Scope
 
     /**
      * Get the "published at" column for the builder.
-     *
-     * @param \Illuminate\Database\Eloquent\Builder $builder
-     * @return string
      */
     protected function getPublishedAtColumn(Builder $builder): string
     {
@@ -69,9 +59,6 @@ class PublishingScope implements Scope
 
     /**
      * Add the only published extension to the builder.
-     *
-     * @param \Illuminate\Database\Eloquent\Builder $builder
-     * @return void
      */
     protected function addOnlyPublished(Builder $builder): void
     {
@@ -92,9 +79,6 @@ class PublishingScope implements Scope
 
     /**
      * Add the only planned extension to the builder.
-     *
-     * @param \Illuminate\Database\Eloquent\Builder $builder
-     * @return void
      */
     protected function addOnlyPlanned(Builder $builder): void
     {
@@ -115,9 +99,6 @@ class PublishingScope implements Scope
 
     /**
      * Add the only planned and published extension to the builder.
-     *
-     * @param \Illuminate\Database\Eloquent\Builder $builder
-     * @return void
      */
     protected function addOnlyPlannedAndPublished(Builder $builder): void
     {
@@ -132,9 +113,6 @@ class PublishingScope implements Scope
 
     /**
      * Add the without planned and published extension to the builder.
-     *
-     * @param \Illuminate\Database\Eloquent\Builder $builder
-     * @return void
      */
     protected function addWithoutPlannedAndPublished(Builder $builder): void
     {
@@ -149,9 +127,6 @@ class PublishingScope implements Scope
 
     /**
      * Add the latest published extension to the builder.
-     *
-     * @param \Illuminate\Database\Eloquent\Builder $builder
-     * @return void
      */
     protected function addLatestPublished(Builder $builder): void
     {
@@ -166,9 +141,6 @@ class PublishingScope implements Scope
 
     /**
      * Add the oldest published extension to the builder.
-     *
-     * @param \Illuminate\Database\Eloquent\Builder $builder
-     * @return void
      */
     protected function addOldestPublished(Builder $builder): void
     {
@@ -183,9 +155,6 @@ class PublishingScope implements Scope
 
     /**
      * Add the latest planned extension to the builder.
-     *
-     * @param \Illuminate\Database\Eloquent\Builder $builder
-     * @return void
      */
     protected function addLatestPlanned(Builder $builder): void
     {
@@ -198,9 +167,6 @@ class PublishingScope implements Scope
 
     /**
      * Add the oldest planned extension to the builder.
-     *
-     * @param \Illuminate\Database\Eloquent\Builder $builder
-     * @return void
      */
     protected function addOldestPlanned(Builder $builder): void
     {
