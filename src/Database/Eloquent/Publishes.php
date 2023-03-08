@@ -7,6 +7,16 @@ namespace Lemaur\Publishing\Database\Eloquent;
 use DateTimeInterface;
 use Illuminate\Support\Facades\Date;
 
+/**
+ * @method static \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Query\Builder OnlyPlannedAndPublished()
+ * @method static \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Query\Builder WithoutPlannedAndPublished()
+ * @method static \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Query\Builder OnlyPlanned()
+ * @method static \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Query\Builder OnlyPublished()
+ * @method static \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Query\Builder LatestPublished()
+ * @method static \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Query\Builder OldestPublished()
+ * @method static \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Query\Builder LatestPlanned()
+ * @method static \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Query\Builder OldestPlanned()
+ */
 trait Publishes
 {
     /**
