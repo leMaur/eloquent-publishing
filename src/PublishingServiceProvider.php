@@ -8,9 +8,9 @@ use Illuminate\Support\ServiceProvider;
 
 class PublishingServiceProvider extends ServiceProvider
 {
-    public function boot()
+    public function boot(): void
     {
-        collect(glob(__DIR__ . '/Database/Schema/Blueprint/*.php'))
+        collect((array) glob(__DIR__.'/Database/Schema/Blueprint/*.php'))
             ->each(function ($path) {
                 require $path;
             });
