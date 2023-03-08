@@ -35,9 +35,9 @@ jobs:
       - name: Cache composer dependencies
         uses: actions/cache@v3
         with:
-        path: ${{ steps.composer-cache.outputs.dir }}
-        key: ${{ matrix.os }}-php-${{ matrix.php }}-laravel-${{ matrix.laravel }}-composer-${{ matrix.stability }}-${{ hashFiles('**/composer.json') }}
-        restore-keys: ${{ matrix.os }}-php-${{ matrix.php }}-laravel-${{ matrix.laravel }}-composer-${{ matrix.stability }}-
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: ${{ matrix.os }}-php-${{ matrix.php }}-laravel-${{ matrix.laravel }}-composer-${{ matrix.stability }}-${{ hashFiles('**/composer.json') }}
+          restore-keys: ${{ matrix.os }}-php-${{ matrix.php }}-laravel-${{ matrix.laravel }}-composer-${{ matrix.stability }}-
 
       - name: Install dependencies
         run: |
