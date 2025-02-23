@@ -15,7 +15,7 @@ class DatabasePublishingTraitTest extends TestCase
         m::close();
     }
 
-    public function testPublish()
+    public function test_publish()
     {
         $model = m::mock(DatabasePublishingTraitStub::class);
         $model->makePartial();
@@ -32,7 +32,7 @@ class DatabasePublishingTraitTest extends TestCase
         $this->assertInstanceOf(Carbon::class, $model->published_at);
     }
 
-    public function testPublishingInTheFuture()
+    public function test_publishing_in_the_future()
     {
         $model = m::mock(DatabasePublishingTraitStub::class);
         $model->makePartial();
@@ -49,7 +49,7 @@ class DatabasePublishingTraitTest extends TestCase
         $this->assertInstanceOf(Carbon::class, $model->published_at);
     }
 
-    public function testUnpublish()
+    public function test_unpublish()
     {
         $model = m::mock(DatabasePublishingTraitStub::class);
         $model->makePartial();

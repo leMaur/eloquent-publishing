@@ -41,7 +41,7 @@ class PublishingScope implements Scope
     public function extend(Builder $builder): void
     {
         foreach ($this->extensions as $extension) {
-            $this->{"add{$extension}"}($builder);
+            $this->{'add'.$extension}($builder);
         }
     }
 
@@ -50,7 +50,7 @@ class PublishingScope implements Scope
      */
     protected function getPublishedAtColumn(Builder $builder): string
     {
-        if (count((array) $builder->getQuery()->joins) > 0) {
+        if ((array) $builder->getQuery()->joins !== []) {
             return $builder->getModel()->getQualifiedPublishedAtColumn();
         }
 
