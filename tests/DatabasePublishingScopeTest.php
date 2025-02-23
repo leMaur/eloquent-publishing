@@ -20,7 +20,7 @@ class DatabasePublishingScopeTest extends TestCase
         m::close();
     }
 
-    public function testOnlyPlannedAndPublishedExtension()
+    public function test_only_planned_and_published_extension()
     {
         $builder = new EloquentBuilder(new BaseBuilder(
             m::mock(ConnectionInterface::class),
@@ -39,7 +39,7 @@ class DatabasePublishingScopeTest extends TestCase
         $this->assertEquals($givenBuilder, $result);
     }
 
-    public function testWithoutPlannedAndPublishedExtension()
+    public function test_without_planned_and_published_extension()
     {
         $builder = new EloquentBuilder(new BaseBuilder(
             m::mock(ConnectionInterface::class),
@@ -58,7 +58,7 @@ class DatabasePublishingScopeTest extends TestCase
         $this->assertEquals($givenBuilder, $result);
     }
 
-    public function testOnlyPlannedExtension()
+    public function test_only_planned_extension()
     {
         $builder = new EloquentBuilder(new BaseBuilder(
             m::mock(ConnectionInterface::class),
@@ -78,7 +78,7 @@ class DatabasePublishingScopeTest extends TestCase
         $this->assertEquals($givenBuilder, $result);
     }
 
-    public function testOnlyPublishedExtension()
+    public function test_only_published_extension()
     {
         $builder = new EloquentBuilder(new BaseBuilder(
             m::mock(ConnectionInterface::class),
@@ -98,7 +98,7 @@ class DatabasePublishingScopeTest extends TestCase
         $this->assertEquals($givenBuilder, $result);
     }
 
-    public function testLatestPublishedExtension()
+    public function test_latest_published_extension()
     {
         $builder = new EloquentBuilder(new BaseBuilder(
             m::mock(ConnectionInterface::class),
@@ -117,7 +117,7 @@ class DatabasePublishingScopeTest extends TestCase
         $this->assertEquals($givenBuilder, $result);
     }
 
-    public function testOldestPublishedExtension()
+    public function test_oldest_published_extension()
     {
         $builder = new EloquentBuilder(new BaseBuilder(
             m::mock(ConnectionInterface::class),
@@ -136,7 +136,7 @@ class DatabasePublishingScopeTest extends TestCase
         $this->assertEquals($givenBuilder, $result);
     }
 
-    public function testLatestPlannedExtension()
+    public function test_latest_planned_extension()
     {
         $builder = new EloquentBuilder(new BaseBuilder(
             m::mock(ConnectionInterface::class),
@@ -154,7 +154,7 @@ class DatabasePublishingScopeTest extends TestCase
         $this->assertEquals($givenBuilder, $result);
     }
 
-    public function testOldestPlannedExtension()
+    public function test_oldest_planned_extension()
     {
         $builder = new EloquentBuilder(new BaseBuilder(
             m::mock(ConnectionInterface::class),

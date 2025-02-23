@@ -10,15 +10,15 @@ use Lemaur\Publishing\Database\Eloquent\Publishes;
 
 class DatabasePublishingTest extends TestCase
 {
-    public function testPublishedAtIsAddedToCastsAsDefaultType()
+    public function test_published_at_is_added_to_casts_as_default_type()
     {
-        $model = new PublishingModel();
+        $model = new PublishingModel;
 
         $this->assertArrayHasKey('published_at', $model->getCasts());
         $this->assertSame('datetime', $model->getCasts()['published_at']);
     }
 
-    public function testPublishedAtIsCastToCarbonInstance()
+    public function test_published_at_is_cast_to_carbon_instance()
     {
         Carbon::setTestNow(Carbon::now());
         $expected = Carbon::createFromFormat('Y-m-d H:i:s', '2021-01-01 12:59:39');
@@ -28,7 +28,7 @@ class DatabasePublishingTest extends TestCase
         $this->assertTrue($expected->eq($model->published_at));
     }
 
-    public function testExistingCastOverridesAddedDateCast()
+    public function test_existing_cast_overrides_added_date_cast()
     {
         $model = new class(['published_at' => '2021-01-01 12:59:39']) extends PublishingModel
         {
@@ -38,7 +38,7 @@ class DatabasePublishingTest extends TestCase
         $this->assertTrue($model->published_at);
     }
 
-    public function testExistingMutatorOverridesAddedDateCast()
+    public function test_existing_mutator_overrides_added_date_cast()
     {
         $model = new class(['published_at' => '2021-01-01 12:59:39']) extends PublishingModel
         {
@@ -51,7 +51,7 @@ class DatabasePublishingTest extends TestCase
         $this->assertSame('expected', $model->published_at);
     }
 
-    public function testCastingToStringOverridesAutomaticDateCastingToRetainPreviousBehaviour()
+    public function test_casting_to_string_overrides_automatic_date_casting_to_retain_previous_behaviour()
     {
         $model = new class(['published_at' => '2021-01-01 12:59:39']) extends PublishingModel
         {
