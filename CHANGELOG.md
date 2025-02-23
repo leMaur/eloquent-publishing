@@ -2,6 +2,14 @@
 
 All notable changes to `eloquent-publishing` will be documented in this file
 
+## 3.2.0 - 2025-02-23
+
+### What's Changed
+
+* Upgrade Laravel 12 by @leMaur in https://github.com/leMaur/eloquent-publishing/pull/23
+
+**Full Changelog**: https://github.com/leMaur/eloquent-publishing/compare/3.1.0...3.2.0
+
 ## Upgrade Laravel 11 - 2025-02-23
 
 ### What's Changed
