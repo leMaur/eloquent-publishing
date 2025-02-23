@@ -22,10 +22,12 @@
         "illuminate/support": "^10.0 | ^11.0"
     },
     "require-dev": {
+        "driftingly/rector-laravel": "^1.2",
         "laravel/pint": "^1.0",
         "nunomaduro/larastan": "^2.0.1",
         "orchestra/testbench": "^8.0 | ^9.0",
         "phpunit/phpunit": "^10.5.0",
+        "rector/rector": "^1.2",
         "roave/security-advisories": "dev-latest"
     },
     "autoload": {
@@ -42,7 +44,8 @@
         "analyse": "vendor/bin/phpstan analyse",
         "test": "vendor/bin/phpunit",
         "test-coverage": "vendor/bin/phpunit --coverage-html coverage",
-        "format": "vendor/bin/pint"
+        "format": "vendor/bin/pint",
+        "refactor": "vendor/bin/rector process --config=rector.php"
     },
     "extra": {
         "laravel": {
