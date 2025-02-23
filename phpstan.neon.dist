@@ -1,8 +1,9 @@
 includes:
     - phpstan-baseline.neon
+    - vendor/phpstan/phpstan-deprecation-rules/rules.neon
 
 parameters:
-    level: 4
+    level: 8
     paths:
         - src
     excludePaths:

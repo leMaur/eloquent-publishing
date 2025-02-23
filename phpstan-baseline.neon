@@ -19,3 +19,58 @@ parameters:
 			message: "#^Call to an undefined method Illuminate\\\\Database\\\\Eloquent\\\\Model\\:\\:getQualifiedPublishedAtColumn\\(\\)\\.$#"
 			count: 9
 			path: src/Database/Eloquent/PublishingScope.php
+
+		-
+			message: "#^Method Lemaur\\\\Publishing\\\\Database\\\\Eloquent\\\\PublishingScope\\:\\:addLatestPlanned\\(\\) has parameter \\$builder with generic class Illuminate\\\\Database\\\\Eloquent\\\\Builder but does not specify its types\\: TModel$#"
+			count: 1
+			path: src/Database/Eloquent/PublishingScope.php
+
+		-
+			message: "#^Method Lemaur\\\\Publishing\\\\Database\\\\Eloquent\\\\PublishingScope\\:\\:addLatestPublished\\(\\) has parameter \\$builder with generic class Illuminate\\\\Database\\\\Eloquent\\\\Builder but does not specify its types\\: TModel$#"
+			count: 1
+			path: src/Database/Eloquent/PublishingScope.php
+
+		-
+			message: "#^Method Lemaur\\\\Publishing\\\\Database\\\\Eloquent\\\\PublishingScope\\:\\:addOldestPlanned\\(\\) has parameter \\$builder with generic class Illuminate\\\\Database\\\\Eloquent\\\\Builder but does not specify its types\\: TModel$#"
+			count: 1
+			path: src/Database/Eloquent/PublishingScope.php
+
+		-
+			message: "#^Method Lemaur\\\\Publishing\\\\Database\\\\Eloquent\\\\PublishingScope\\:\\:addOldestPublished\\(\\) has parameter \\$builder with generic class Illuminate\\\\Database\\\\Eloquent\\\\Builder but does not specify its types\\: TModel$#"
+			count: 1
+			path: src/Database/Eloquent/PublishingScope.php
+
+		-
+			message: "#^Method Lemaur\\\\Publishing\\\\Database\\\\Eloquent\\\\PublishingScope\\:\\:addOnlyPlanned\\(\\) has parameter \\$builder with generic class Illuminate\\\\Database\\\\Eloquent\\\\Builder but does not specify its types\\: TModel$#"
+			count: 1
+			path: src/Database/Eloquent/PublishingScope.php
+
+		-
+			message: "#^Method Lemaur\\\\Publishing\\\\Database\\\\Eloquent\\\\PublishingScope\\:\\:addOnlyPlannedAndPublished\\(\\) has parameter \\$builder with generic class Illuminate\\\\Database\\\\Eloquent\\\\Builder but does not specify its types\\: TModel$#"
+			count: 1
+			path: src/Database/Eloquent/PublishingScope.php
+
+		-
+			message: "#^Method Lemaur\\\\Publishing\\\\Database\\\\Eloquent\\\\PublishingScope\\:\\:addOnlyPublished\\(\\) has parameter \\$builder with generic class Illuminate\\\\Database\\\\Eloquent\\\\Builder but does not specify its types\\: TModel$#"
+			count: 1
+			path: src/Database/Eloquent/PublishingScope.php
+
+		-
+			message: "#^Method Lemaur\\\\Publishing\\\\Database\\\\Eloquent\\\\PublishingScope\\:\\:addWithoutPlannedAndPublished\\(\\) has parameter \\$builder with generic class Illuminate\\\\Database\\\\Eloquent\\\\Builder but does not specify its types\\: TModel$#"
+			count: 1
+			path: src/Database/Eloquent/PublishingScope.php
+
+		-
+			message: "#^Method Lemaur\\\\Publishing\\\\Database\\\\Eloquent\\\\PublishingScope\\:\\:apply\\(\\) has parameter \\$builder with generic class Illuminate\\\\Database\\\\Eloquent\\\\Builder but does not specify its types\\: TModel$#"
+			count: 1
+			path: src/Database/Eloquent/PublishingScope.php
+
+		-
+			message: "#^Method Lemaur\\\\Publishing\\\\Database\\\\Eloquent\\\\PublishingScope\\:\\:extend\\(\\) has parameter \\$builder with generic class Illuminate\\\\Database\\\\Eloquent\\\\Builder but does not specify its types\\: TModel$#"
+			count: 1
+			path: src/Database/Eloquent/PublishingScope.php
+
+		-
+			message: "#^Method Lemaur\\\\Publishing\\\\Database\\\\Eloquent\\\\PublishingScope\\:\\:getPublishedAtColumn\\(\\) has parameter \\$builder with generic class Illuminate\\\\Database\\\\Eloquent\\\\Builder but does not specify its types\\: TModel$#"
+			count: 1
+			path: src/Database/Eloquent/PublishingScope.php
