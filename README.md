@@ -4,9 +4,7 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/lemaur/eloquent-publishing.svg?style=flat-square)](https://packagist.org/packages/lemaur/eloquent-publishing)
 [![License](https://img.shields.io/packagist/l/lemaur/eloquent-publishing.svg?style=flat-square&color=yellow)](https://github.com/leMaur/eloquent-publishing/blob/main/LICENSE.md)
 [![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/lemaur/eloquent-publishing/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/leMaur/eloquent-publishing/actions/workflows/run-tests.yml)
-[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/lemaur/eloquent-publishing/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/leMaur/eloquent-publishing/actions/workflows/fix-php-code-style-issues.yml)
 [![GitHub Sponsors](https://img.shields.io/github/sponsors/lemaur?style=flat-square&color=ea4aaa)](https://github.com/sponsors/leMaur)
-[![Trees](https://img.shields.io/badge/dynamic/json?color=yellowgreen&style=flat-square&label=Trees&query=%24.total&url=https%3A%2F%2Fpublic.offset.earth%2Fusers%2Flemaur%2Ftrees)](https://ecologi.com/lemaur?r=6012e849de97da001ddfd6c9)
 
 This package provides a trait that will help you publishing eloquent models.
 ```php
