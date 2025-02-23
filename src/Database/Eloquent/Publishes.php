@@ -4,18 +4,20 @@ declare(strict_types=1);
 
 namespace Lemaur\Publishing\Database\Eloquent;
 
+use Closure;
 use DateTimeInterface;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Date;
 
 /**
- * @method static \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Query\Builder OnlyPlannedAndPublished()
- * @method static \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Query\Builder WithoutPlannedAndPublished()
- * @method static \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Query\Builder OnlyPlanned()
- * @method static \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Query\Builder OnlyPublished()
- * @method static \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Query\Builder LatestPublished()
- * @method static \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Query\Builder OldestPublished()
- * @method static \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Query\Builder LatestPlanned()
- * @method static \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Query\Builder OldestPlanned()
+ * @method static Builder|\Illuminate\Database\Query\Builder OnlyPlannedAndPublished()
+ * @method static Builder|\Illuminate\Database\Query\Builder WithoutPlannedAndPublished()
+ * @method static Builder|\Illuminate\Database\Query\Builder OnlyPlanned()
+ * @method static Builder|\Illuminate\Database\Query\Builder OnlyPublished()
+ * @method static Builder|\Illuminate\Database\Query\Builder LatestPublished()
+ * @method static Builder|\Illuminate\Database\Query\Builder OldestPublished()
+ * @method static Builder|\Illuminate\Database\Query\Builder LatestPlanned()
+ * @method static Builder|\Illuminate\Database\Query\Builder OldestPlanned()
  */
 trait Publishes
 {
@@ -24,7 +26,47 @@ trait Publishes
      */
     public static function bootPublishes(): void
     {
-        static::addGlobalScope(new PublishingScope());
+        static::addGlobalScope(new PublishingScope);
+    }
+
+    /**
+     * Register a publishing model event with the dispatcher.
+     *
+     * @param  Closure|string  $callback
+     */
+    public static function publishing($callback): void
+    {
+        static::registerModelEvent('publishing', $callback);
+    }
+
+    /**
+     * Register a published model event with the dispatcher.
+     *
+     * @param  Closure|string  $callback
+     */
+    public static function published($callback): void
+    {
+        static::registerModelEvent('published', $callback);
+    }
+
+    /**
+     * Register an unpublishing model event with the dispatcher.
+     *
+     * @param  Closure|string  $callback
+     */
+    public static function unpublishing($callback): void
+    {
+        static::registerModelEvent('unpublishing', $callback);
+    }
+
+    /**
+     * Register an unpublished model event with the dispatcher.
+     *
+     * @param  Closure|string  $callback
+     */
+    public static function unpublished($callback): void
+    {
+        static::registerModelEvent('unpublished', $callback);
     }
 
     /**
@@ -122,46 +164,6 @@ trait Publishes
     {
         return $this->{$this->getPublishedAtColumn()} !== null
             && $this->{$this->getPublishedAtColumn()} <= Date::now();
-    }
-
-    /**
-     * Register a publishing model event with the dispatcher.
-     *
-     * @param  \Closure|string  $callback
-     */
-    public static function publishing($callback): void
-    {
-        static::registerModelEvent('publishing', $callback);
-    }
-
-    /**
-     * Register a published model event with the dispatcher.
-     *
-     * @param  \Closure|string  $callback
-     */
-    public static function published($callback): void
-    {
-        static::registerModelEvent('published', $callback);
-    }
-
-    /**
-     * Register an unpublishing model event with the dispatcher.
-     *
-     * @param  \Closure|string  $callback
-     */
-    public static function unpublishing($callback): void
-    {
-        static::registerModelEvent('unpublishing', $callback);
-    }
-
-    /**
-     * Register an unpublished model event with the dispatcher.
-     *
-     * @param  \Closure|string  $callback
-     */
-    public static function unpublished($callback): void
-    {
-        static::registerModelEvent('unpublished', $callback);
     }
 
     /**
