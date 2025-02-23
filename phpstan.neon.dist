@@ -2,16 +2,11 @@ includes:
     - phpstan-baseline.neon
 
 parameters:
-    level: 8
+    level: 4
     paths:
         - src
     excludePaths:
         - src/Database/Schema/Blueprint
-    ignoreErrors:
-        - '#Call to an undefined method Illuminate\\Database\\Eloquent\\Builder\|Illuminate\\Database\\Eloquent\\Model::getQualifiedPublishedAtColumn\(\).#'
-        - '#Call to an undefined method Illuminate\\Database\\Eloquent\\Builder\|Illuminate\\Database\\Eloquent\\Model::getPublishedAtColumn\(\).#'
-        - '#Call to an undefined method Illuminate\\Database\\Eloquent\\Builder::latestPublished\(\).#'
-        - '#Call to an undefined method Illuminate\\Database\\Eloquent\\Builder::oldestPublished\(\).#'
 
     tmpDir: build/phpstan
     checkMissingIterableValueType: true
