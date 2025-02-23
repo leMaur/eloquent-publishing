@@ -1,9 +1,6 @@
-name: Fix PHP code style issues
+name: Check & Fix code style
 
-on:
-  push:
-    paths:
-      - '**.php'
+on: [push]
 
 permissions:
   contents: write
@@ -18,7 +15,7 @@ jobs:
         with:
           ref: ${{ github.head_ref }}
 
-      - name: Fix PHP code style issues
+      - name: Fix code styling issues
         uses: aglipanci/laravel-pint-action@2.5
 
       - name: Commit changes
