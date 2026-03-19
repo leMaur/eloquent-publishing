@@ -61,11 +61,6 @@ parameters:
 			path: src/Database/Eloquent/PublishingScope.php
 
 		-
-			message: "#^Method Lemaur\\\\Publishing\\\\Database\\\\Eloquent\\\\PublishingScope\\:\\:apply\\(\\) has parameter \\$builder with generic class Illuminate\\\\Database\\\\Eloquent\\\\Builder but does not specify its types\\: TModel$#"
-			count: 1
-			path: src/Database/Eloquent/PublishingScope.php
-
-		-
 			message: "#^Method Lemaur\\\\Publishing\\\\Database\\\\Eloquent\\\\PublishingScope\\:\\:extend\\(\\) has parameter \\$builder with generic class Illuminate\\\\Database\\\\Eloquent\\\\Builder but does not specify its types\\: TModel$#"
 			count: 1
 			path: src/Database/Eloquent/PublishingScope.php
