@@ -2,6 +2,23 @@
 
 All notable changes to `eloquent-publishing` will be documented in this file
 
+## 3.3.0 - 2026-03-19
+
+### What's Changed
+
+* chore(deps): bump dependabot/fetch-metadata from 2.3.0 to 2.4.0 by @dependabot[bot] in https://github.com/leMaur/eloquent-publishing/pull/24
+* chore(deps): bump stefanzweifel/git-auto-commit-action from 5 to 6 by @dependabot[bot] in https://github.com/leMaur/eloquent-publishing/pull/25
+* chore(deps): bump aglipanci/laravel-pint-action from 2.5 to 2.6 by @dependabot[bot] in https://github.com/leMaur/eloquent-publishing/pull/26
+* chore(deps): bump actions/checkout from 4 to 5 by @dependabot[bot] in https://github.com/leMaur/eloquent-publishing/pull/27
+* chore(deps): bump stefanzweifel/git-auto-commit-action from 6 to 7 by @dependabot[bot] in https://github.com/leMaur/eloquent-publishing/pull/28
+* chore(deps): bump actions/checkout from 5 to 6 by @dependabot[bot] in https://github.com/leMaur/eloquent-publishing/pull/29
+* chore(deps): bump actions/cache from 4 to 5 by @dependabot[bot] in https://github.com/leMaur/eloquent-publishing/pull/30
+* chore(deps): bump dependabot/fetch-metadata from 2.4.0 to 2.5.0 by @dependabot[bot] in https://github.com/leMaur/eloquent-publishing/pull/31
+* chore(deps): bump ramsey/composer-install from 3 to 4 by @dependabot[bot] in https://github.com/leMaur/eloquent-publishing/pull/32
+* Add support for Laravel 13 and PHP 8.5 by @leMaur in https://github.com/leMaur/eloquent-publishing/pull/33
+
+**Full Changelog**: https://github.com/leMaur/eloquent-publishing/compare/3.2.0...3.3.0
+
 ## 3.2.0 - 2025-02-23
 
 ### What's Changed
