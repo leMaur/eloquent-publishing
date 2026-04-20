@@ -9,6 +9,11 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Scope;
 use Illuminate\Support\Facades\Date;
 
+/**
+ * @template TModel of Model
+ *
+ * @implements Scope<TModel>
+ */
 class PublishingScope implements Scope
 {
     /**
