@@ -2,6 +2,16 @@
 
 All notable changes to `eloquent-publishing` will be documented in this file
 
+## 4.0.0 - 2026-05-25
+
+### What's Changed
+
+* chore(deps): bump dependabot/fetch-metadata from 2.5.0 to 3.0.0 by @dependabot[bot] in https://github.com/leMaur/eloquent-publishing/pull/34
+* chore(deps): bump dependabot/fetch-metadata from 3.0.0 to 3.1.0 by @dependabot[bot] in https://github.com/leMaur/eloquent-publishing/pull/35
+* feat!: drop EOL Laravel 10 + PHP 8.1 (require L11+, PHP 8.2+) by @leMaur in https://github.com/leMaur/eloquent-publishing/pull/36
+
+**Full Changelog**: https://github.com/leMaur/eloquent-publishing/compare/3.3.0...4.0.0
+
 ## 3.3.0 - 2026-03-19
 
 ### What's Changed
