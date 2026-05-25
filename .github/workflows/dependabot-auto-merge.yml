@@ -2,31 +2,52 @@ name: dependabot-auto-merge
 on: pull_request_target
 
 permissions:
-  pull-requests: write
   contents: write
+  pull-requests: write
 
 jobs:
   dependabot:
     runs-on: ubuntu-latest
     if: ${{ github.actor == 'dependabot[bot]' }}
     steps:
-
       - name: Dependabot metadata
         id: metadata
-        uses: dependabot/fetch-metadata@v3.1.0
+        uses: dependabot/fetch-metadata@25dd0e34f4fe68f24cc83900b1fe3fe149efef98 # v3.1.0
         with:
           github-token: "${{ secrets.GITHUB_TOKEN }}"
 
-      - name: Auto-merge Dependabot PRs for semver-minor updates
-        if: ${{steps.metadata.outputs.update-type == 'version-update:semver-minor'}}
-        run: gh pr merge --auto --merge "$PR_URL"
+      # Gate auto-merge on the test suite passing, then merge.
+      #
+      # We deliberately do NOT rely on branch protection / required status
+      # checks: pint.yml and update-changelog.yml push directly to main via
+      # git-auto-commit-action, and required checks on main would block those
+      # pushes. Instead we wait for the test workflow run on this PR's head SHA
+      # to finish, and only merge if it succeeded. Only semver-minor and
+      # semver-patch updates are auto-merged; majors require manual review.
+      - name: Auto-merge minor/patch updates after tests pass
+        if: ${{ contains(fromJSON('["version-update:semver-minor", "version-update:semver-patch"]'), steps.metadata.outputs.update-type) }}
         env:
-          PR_URL: ${{github.event.pull_request.html_url}}
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-
-      - name: Auto-merge Dependabot PRs for semver-patch updates
-        if: ${{steps.metadata.outputs.update-type == 'version-update:semver-patch'}}
-        run: gh pr merge --auto --merge "$PR_URL"
-        env:
-          PR_URL: ${{github.event.pull_request.html_url}}
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+        run: |
+          set -euo pipefail
+          ok=false
+          for _ in $(seq 1 40); do
+            run=$(gh run list --repo "$REPO" --workflow run-tests.yml --limit 30 \
+                    --json headSha,status,conclusion \
+                    --jq "[.[] | select(.headSha == \"$HEAD_SHA\")][0] // {}")
+            status=$(printf '%s' "$run" | jq -r '.status // "queued"')
+            if [ "$status" = "completed" ]; then
+              [ "$(printf '%s' "$run" | jq -r '.conclusion')" = "success" ] && ok=true
+              break
+            fi
+            echo "waiting for test suite (status=${status})…"
+            sleep 30
+          done
+          if [ "$ok" != "true" ]; then
+            echo "::error::Test suite did not pass for ${HEAD_SHA}; not auto-merging."
+            exit 1
+          fi
+          gh pr merge --merge "$PR_URL"
