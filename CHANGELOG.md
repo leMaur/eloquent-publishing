@@ -2,6 +2,17 @@
 
 All notable changes to `eloquent-publishing` will be documented in this file
 
+## 4.0.1 - 2026-05-27
+
+### What's Changed
+
+* chore(ci): pin actions to SHAs + gate dependabot auto-merge on tests by @leMaur in https://github.com/leMaur/eloquent-publishing/pull/37
+* chore: SHA-pin actions + least-privilege permissions + gate Dependabot auto-merge by @leMaur in https://github.com/leMaur/eloquent-publishing/pull/38
+* fix(ci): pint check-only (no codebase mutation) by @leMaur in https://github.com/leMaur/eloquent-publishing/pull/39
+* chore(ci): PR-based changelog + squash (branch-protection rollout) by @leMaur in https://github.com/leMaur/eloquent-publishing/pull/40
+
+**Full Changelog**: https://github.com/leMaur/eloquent-publishing/compare/4.0.0...4.0.1
+
 ## 4.0.0 - 2026-05-25
 
 ### What's Changed
