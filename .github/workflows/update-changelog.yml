@@ -1,12 +1,21 @@
 name: "Update Changelog"
 
+# PR-based flow (shared leMaur OSS pattern): direct push to main is blocked by
+# branch protection, so the changelog update is opened as a PR. The squash-merge
+# (by GitHub) is signed, satisfying required_signatures on main. This is the sole
+# workflow permitted to change the codebase — all other CI checks are read-only.
 on:
   release:
     types: [released]
 
+permissions:
+  contents: write
+  pull-requests: write
+
 jobs:
   update:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
 
     steps:
       - name: Checkout code
@@ -20,9 +29,16 @@ jobs:
           latest-version: ${{ github.event.release.name }}
           release-notes: ${{ github.event.release.body }}
 
-      - name: Commit updated CHANGELOG
-        uses: stefanzweifel/git-auto-commit-action@04702edda442b2e678b25b537cec683a1493fcb9 # v7
+      - name: Open changelog PR
+        uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v7
         with:
-          branch: main
-          commit_message: Update CHANGELOG
-          file_pattern: CHANGELOG.md
+          commit-message: "docs: update CHANGELOG for ${{ github.event.release.tag_name }}"
+          title: "docs: update CHANGELOG for ${{ github.event.release.tag_name }}"
+          body: |
+            Automated CHANGELOG update for release [`${{ github.event.release.tag_name }}`](${{ github.event.release.html_url }}).
+
+            Direct push to `main` is blocked by branch protection, so this PR is opened instead.
+          branch: chore/changelog-${{ github.event.release.tag_name }}
+          base: main
+          delete-branch: true
+          add-paths: CHANGELOG.md
