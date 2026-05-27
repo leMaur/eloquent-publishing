@@ -1,24 +1,24 @@
-name: Check & Fix code style
+name: Check code style
 
-on: [push]
+# CI check ONLY — fails if there are style violations, never mutates the codebase.
+# Developers fix style locally (`pint`) and push; CI just verifies. No workflow
+# commits back to a branch; the changelog updater is the sole permitted mutator.
+on:
+  pull_request:
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   php-code-styling:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
 
     steps:
       - name: Checkout code
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
-        with:
-          ref: ${{ github.head_ref }}
 
-      - name: Fix code styling issues
+      - name: Check code style (fail on violations, no changes)
         uses: aglipanci/laravel-pint-action@36de00d5f5a8a4e12d443e01671daa12a18f4c79 # 2.6
-
-      - name: Commit changes
-        uses: stefanzweifel/git-auto-commit-action@04702edda442b2e678b25b537cec683a1493fcb9 # v7
         with:
-          commit_message: 'style: resolve style guide violations'
+          testMode: true
