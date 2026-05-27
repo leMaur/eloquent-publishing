@@ -50,4 +50,5 @@ jobs:
             echo "::error::Test suite did not pass for ${HEAD_SHA}; not auto-merging."
             exit 1
           fi
-          gh pr merge --merge "$PR_URL"
+          # Squash (not merge) to keep main's linear history under the branch ruleset.
+          gh pr merge --squash "$PR_URL"
