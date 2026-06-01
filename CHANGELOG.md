@@ -2,6 +2,19 @@
 
 All notable changes to `eloquent-publishing` will be documented in this file
 
+## 4.0.2 - 2026-06-01
+
+### What's Changed
+
+* docs: update CHANGELOG for 4.0.1 by @github-actions[bot] in https://github.com/leMaur/eloquent-publishing/pull/41
+* chore(ci): add Composer 2.10 supply-chain audit workflow by @leMaur in https://github.com/leMaur/eloquent-publishing/pull/42
+
+### New Contributors
+
+* @github-actions[bot] made their first contribution in https://github.com/leMaur/eloquent-publishing/pull/41
+
+**Full Changelog**: https://github.com/leMaur/eloquent-publishing/compare/4.0.1...4.0.2
+
 ## 4.0.1 - 2026-05-27
 
 ### What's Changed
