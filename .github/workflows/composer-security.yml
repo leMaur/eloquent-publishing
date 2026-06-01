@@ -1,0 +1,36 @@
+# managed-by: ComposerSecurityStamp (profile=oss) — edit the stamp, not this file
+name: Composer Security
+
+permissions:
+  contents: read
+
+on:
+  push:
+    paths:
+      - 'composer.json'
+      - '.github/workflows/composer-security.yml'
+  pull_request:
+  schedule:
+    - cron: '27 6 * * 1'  # weekly — catches deps newly flagged in an unchanged lockfile
+
+jobs:
+  audit:
+    name: Malware & advisory audit
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
+
+      - name: Setup PHP + pinned Composer
+        uses: shivammathur/setup-php@7c071dfe9dc99bdf297fa79cb49ea005b9fcadbc # v2
+        with:
+          php-version: '8.4'
+          tools: composer:2.10
+          coverage: none
+
+      - name: Resolve dependencies (library ships no lock)
+        run: composer update --prefer-dist --no-interaction --no-progress
+
+      - name: Audit (Composer >= 2.10 fails on malware + advisories)
+        run: composer audit

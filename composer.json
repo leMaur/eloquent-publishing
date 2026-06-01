@@ -55,7 +55,19 @@
         }
     },
     "config": {
-        "sort-packages": true
+        "sort-packages": true,
+        "policy": {
+            "malware": {
+                "block": true,
+                "block-scope": "all"
+            },
+            "advisories": {
+                "block": true
+            },
+            "abandoned": {
+                "audit": "report"
+            }
+        }
     },
     "minimum-stability": "dev",
     "prefer-stable": true
