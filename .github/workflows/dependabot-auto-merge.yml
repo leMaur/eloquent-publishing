@@ -8,6 +8,7 @@ permissions:
 jobs:
   dependabot:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     if: ${{ github.actor == 'dependabot[bot]' }}
     steps:
       - name: Dependabot metadata
@@ -18,12 +19,12 @@ jobs:
 
       # Gate auto-merge on the test suite passing, then merge.
       #
-      # We deliberately do NOT rely on branch protection / required status
-      # checks: pint.yml and update-changelog.yml push directly to main via
-      # git-auto-commit-action, and required checks on main would block those
-      # pushes. Instead we wait for the test workflow run on this PR's head SHA
-      # to finish, and only merge if it succeeded. Only semver-minor and
-      # semver-patch updates are auto-merged; majors require manual review.
+      # main is protected (signed commits, linear history, PR required) but has
+      # NO required status checks, so branch protection alone won't keep an
+      # untested update out. We gate here instead: wait for the test workflow
+      # run on this PR's head SHA to finish, and only merge if it succeeded.
+      # Only semver-minor and semver-patch updates are auto-merged; majors
+      # require manual review.
       - name: Auto-merge minor/patch updates after tests pass
         if: ${{ contains(fromJSON('["version-update:semver-minor", "version-update:semver-patch"]'), steps.metadata.outputs.update-type) }}
         env:
@@ -50,5 +51,7 @@ jobs:
             echo "::error::Test suite did not pass for ${HEAD_SHA}; not auto-merging."
             exit 1
           fi
+          # --match-head-commit refuses the merge if Dependabot rebased the PR
+          # after we validated HEAD_SHA, so we never merge an untested head.
           # Squash (not merge) to keep main's linear history under the branch ruleset.
-          gh pr merge --squash "$PR_URL"
+          gh pr merge --squash --match-head-commit "$HEAD_SHA" "$PR_URL"
