@@ -2,6 +2,20 @@
 
 All notable changes to `eloquent-publishing` will be documented in this file
 
+## 4.0.3 - 2026-10-21
+
+### What's Changed
+
+* chore(deps): upgrade to Rector 2, PHPStan 2 rules and PHPUnit 13 by @leMaur in https://github.com/leMaur/eloquent-publishing/pull/53
+* fix: analyse the Publishes trait and correct its event and scope types by @leMaur in https://github.com/leMaur/eloquent-publishing/pull/54
+
+Type information only, with no runtime change:
+
+- The `publishing`, `published`, `unpublishing` and `unpublished` callbacks now use the type that Eloquent's own model events accept: `QueuedClosure|callable|array|class-string`. A class name must now be typed as a `class-string`, as it already is for Eloquent's own events.
+- The scope methods (`onlyPublished()`, `latestPublished()` and the others) are typed as returning `Builder<static>`, so static analysis infers the model they are called on.
+
+**Full Changelog**: https://github.com/leMaur/eloquent-publishing/compare/4.0.2...4.0.3
+
 ## 4.0.2 - 2026-06-01
 
 ### What's Changed
