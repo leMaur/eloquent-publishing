@@ -6,14 +6,8 @@ parameters:
     level: 8
     paths:
         - src
+        - tests/Fixtures
     excludePaths:
         - src/Database/Schema/Blueprint
 
     tmpDir: build/phpstan
-
-    ignoreErrors:
-        # Publishes is the package's public API: it is only ever used by the models of
-        # applications that install the package, never by a class inside the analysed paths.
-        -
-            identifier: trait.unused
-            path: src/Database/Eloquent/Publishes.php
