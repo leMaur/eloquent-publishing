@@ -10,14 +10,14 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Date;
 
 /**
- * @method static Builder|\Illuminate\Database\Query\Builder OnlyPlannedAndPublished()
- * @method static Builder|\Illuminate\Database\Query\Builder WithoutPlannedAndPublished()
- * @method static Builder|\Illuminate\Database\Query\Builder OnlyPlanned()
- * @method static Builder|\Illuminate\Database\Query\Builder OnlyPublished()
- * @method static Builder|\Illuminate\Database\Query\Builder LatestPublished()
- * @method static Builder|\Illuminate\Database\Query\Builder OldestPublished()
- * @method static Builder|\Illuminate\Database\Query\Builder LatestPlanned()
- * @method static Builder|\Illuminate\Database\Query\Builder OldestPlanned()
+ * @method static Builder<static>|\Illuminate\Database\Query\Builder OnlyPlannedAndPublished()
+ * @method static Builder<static>|\Illuminate\Database\Query\Builder WithoutPlannedAndPublished()
+ * @method static Builder<static>|\Illuminate\Database\Query\Builder OnlyPlanned()
+ * @method static Builder<static>|\Illuminate\Database\Query\Builder OnlyPublished()
+ * @method static Builder<static>|\Illuminate\Database\Query\Builder LatestPublished()
+ * @method static Builder<static>|\Illuminate\Database\Query\Builder OldestPublished()
+ * @method static Builder<static>|\Illuminate\Database\Query\Builder LatestPlanned()
+ * @method static Builder<static>|\Illuminate\Database\Query\Builder OldestPlanned()
  */
 trait Publishes
 {
@@ -74,9 +74,7 @@ trait Publishes
      */
     public function initializePublishes(): void
     {
-        if (! isset($this->casts[$this->getPublishedAtColumn()])) {
-            $this->casts[$this->getPublishedAtColumn()] = 'datetime';
-        }
+        $this->casts[$this->getPublishedAtColumn()] ??= 'datetime';
     }
 
     /**
