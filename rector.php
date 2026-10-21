@@ -17,7 +17,6 @@ return Rector\Config\RectorConfig::configure()
         naming: \true,
         instanceOf: \true,
         earlyReturn: \true,
-        strictBooleans: \true,
         carbon: \true,
         rectorPreset: \true,
     )
