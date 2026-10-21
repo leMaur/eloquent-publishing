@@ -4,20 +4,20 @@ declare(strict_types=1);
 
 namespace Lemaur\Publishing\Database\Eloquent;
 
-use Closure;
 use DateTimeInterface;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Events\QueuedClosure;
 use Illuminate\Support\Facades\Date;
 
 /**
- * @method static Builder<static>|\Illuminate\Database\Query\Builder OnlyPlannedAndPublished()
- * @method static Builder<static>|\Illuminate\Database\Query\Builder WithoutPlannedAndPublished()
- * @method static Builder<static>|\Illuminate\Database\Query\Builder OnlyPlanned()
- * @method static Builder<static>|\Illuminate\Database\Query\Builder OnlyPublished()
- * @method static Builder<static>|\Illuminate\Database\Query\Builder LatestPublished()
- * @method static Builder<static>|\Illuminate\Database\Query\Builder OldestPublished()
- * @method static Builder<static>|\Illuminate\Database\Query\Builder LatestPlanned()
- * @method static Builder<static>|\Illuminate\Database\Query\Builder OldestPlanned()
+ * @method static Builder<static> OnlyPlannedAndPublished()
+ * @method static Builder<static> WithoutPlannedAndPublished()
+ * @method static Builder<static> OnlyPlanned()
+ * @method static Builder<static> OnlyPublished()
+ * @method static Builder<static> LatestPublished()
+ * @method static Builder<static> OldestPublished()
+ * @method static Builder<static> LatestPlanned()
+ * @method static Builder<static> OldestPlanned()
  */
 trait Publishes
 {
@@ -32,7 +32,7 @@ trait Publishes
     /**
      * Register a publishing model event with the dispatcher.
      *
-     * @param  Closure|string  $callback
+     * @param  QueuedClosure|callable|array<array-key, mixed>|class-string  $callback
      */
     public static function publishing($callback): void
     {
@@ -42,7 +42,7 @@ trait Publishes
     /**
      * Register a published model event with the dispatcher.
      *
-     * @param  Closure|string  $callback
+     * @param  QueuedClosure|callable|array<array-key, mixed>|class-string  $callback
      */
     public static function published($callback): void
     {
@@ -52,7 +52,7 @@ trait Publishes
     /**
      * Register an unpublishing model event with the dispatcher.
      *
-     * @param  Closure|string  $callback
+     * @param  QueuedClosure|callable|array<array-key, mixed>|class-string  $callback
      */
     public static function unpublishing($callback): void
     {
@@ -62,7 +62,7 @@ trait Publishes
     /**
      * Register an unpublished model event with the dispatcher.
      *
-     * @param  Closure|string  $callback
+     * @param  QueuedClosure|callable|array<array-key, mixed>|class-string  $callback
      */
     public static function unpublished($callback): void
     {
