@@ -66,6 +66,12 @@
             },
             "abandoned": {
                 "audit": "report"
+            },
+            "cooldown": {
+                "period": "7 days",
+                "ignore": {
+                    "lemaur/*": "own vendor namespace (Packagist vendor names are owned)"
+                }
             }
         }
     },
